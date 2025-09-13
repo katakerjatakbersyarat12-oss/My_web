@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cute Bear Pages</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Love Decoration -->
+  <div class="heart h1"></div>
+  <div class="heart h2"></div>
+  <div class="heart h3"></div>
+  <div class="heart h4"></div>
+  <div class="heart h5"></div>
+
+  <!-- === COVER PAGE === -->
+  <section id="cover" class="cover active">
+    <h1>💕 Selamat Datang 💕</h1>
+    <p>💕Diklik yaaa Tombol Mulainyaaaaa💕</p>
+    <img src="bear.jpg" alt="Cover Bear">
+    <button class="btn" onclick="goPage('main')">Mulai</button>
+  </section>
+
+  <!-- === MAIN MENU PAGE === -->
+  <section id="main">
+    <div class="card">
+      <img src="bear.jpg" alt="Bear">
+      <div class="caption">Selamat Ulang Tahun Cantik, Semoga Panjang Umur dan Sehat Selalu yaa, dan Smeoga apa yang kamu harapkan jadi kenyataan ya cantik, I Love You ❤️</div>
+      <div>
+        <button class="btn" onclick="goPage('cover')">⬅ Back</button>
+        <button class="btn" onclick="goPage('next')">Halaman Selanjutnya ➝</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- === NEXT PAGE (Halaman ke-3: teks kiri, foto kanan) === -->
+  <section id="next">
+    <div class="card side-by-side">
+      <div class="text">
+        <h2>Photobooth yang kesekian kalinya 💖</h2>
+        <p>
+          karena kita udah bilang bahwasannya kita bakalan pergi ke photobooth baru kita akhirnya mutusin buat photobooth di deket csb yang dimana aku liat kamu banget di hari itu.
+        </p>
+        <button class="btn" onclick="goPage('main')">⬅ Kembali</button>
+        <button class="btn" onclick="goPage('next2')">Lanjut ➝</button>
+      </div>
+      <div class="image">
+        <img src="IMG-20250708-WA0065.jpg" alt="Next Bear">
+      </div>
+    </div>
+  </section>
+
+  <!-- === NEXT2 PAGE (Halaman ke-4: foto kiri, teks kanan) === -->
+  <section id="next2">
+    <div class="card side-by-side reverse">
+      <div class="image">
+        <img src="1000030042.jpg" alt="Next Bear 2">
+      </div>
+      <div class="text">
+        <h2>Masih Di Tempat yang Sama 🌹</h2>
+        <p>
+          Liat seberapa Lucu kamu di foto ini, sampe aku suka banget liat foto ini karena saking lucunya kamu. 
+          dan sampe sekarang pun aku suka banget sama foto ini.💞
+        </p>
+        <button class="btn" onclick="goPage('next')">⬅ Kembali</button>
+        <button class="btn" onclick="goPage('next3')">Lanjut ➝</button>
+      </div>
+    </div>
+  </section>
+
+    <!-- === NEXT3 PAGE (Halaman ke-5: teks atas, foto bawah) === -->
+  <section id="next3">
+    <div class="card vertical">
+      <div class="text">
+        <h2>Kenangan Indah 🌸</h2>
+        <p>
+          Setiap momen bersamamu adalah kenangan indah  
+          yang selalu tersimpan di hati. 💕
+        </p>
+      </div>
+      <div class="image">
+        <img src="8b282eb7-7c93-44c6-8163-ea2fc1d94b4b.png" alt="Next Bear 3">
+      </div>
+      <div>
+        <button class="btn" onclick="goPage('next2')">⬅ Kembali</button>
+        <button class="btn" onclick="goPage('next4')">Lanjut ➝</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- === NEXT4 PAGE (Halaman ke-6: foto atas, teks bawah) === -->
+  <section id="next4">
+    <div class="card vertical">
+      <div class="image">
+        <img src="IMG-20250317-WA0024.jpg" alt="Next Bear 4">
+      </div>
+      <div class="text">
+        <h2>Tetap Bersamaku 💖</h2>
+        <p>
+          Meski waktu terus berjalan,  
+          aku ingin selalu ada di sisimu selamanya. ✨
+        </p>
+      </div>
+      <div>
+        <button class="btn" onclick="goPage('next3')">⬅ Kembali</button>
+         <button class="btn" onclick="goPage('closing')">Lanjut ➝</button>
+      </div>
+    </div>
+  </section>
+
+    <!-- === PAGE 7 (CLOSING) === -->
+  <section id="closing">
+    <div class="card closing-card">
+      <h1>💌 Penutup 💌</h1>
+      <p>
+        Terima kasih sudah melihat semua halaman ini.<br>
+        Semoga kita selalu bersama penuh cinta 💕
+      </p>
+        <button class="btn" onclick="goPage('cover')">⬅ Kembali ke Awal</button>
+      </div>
+    </div>
+  </section>
+
+<script>
+  function goPage(pageId) {
+    const sections = document.querySelectorAll("section");
+    sections.forEach(sec => {
+      if (sec.id === pageId) {
+        sec.classList.add("active");
+      } else {
+        sec.classList.remove("active");
+      }
+    });
+  }
+</script>
+</body>
+</html>

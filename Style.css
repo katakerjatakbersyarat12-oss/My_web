@@ -1,0 +1,234 @@
+/* === GLOBAL STYLE === */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  text-align: center;
+  background: repeating-linear-gradient(
+    45deg,
+    #ffe6d9,
+    #ffe6d9 30px,
+    #fff4ec 30px,
+    #fff4ec 60px
+  );
+  overflow-x: hidden;
+}
+
+section {
+  display: none;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+section.active {
+  display: flex;
+}
+
+/* === LOVE DECORATION === */
+.heart {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: #f7a9a8;
+  transform: rotate(45deg);
+  border-radius: 50% 50% 0 0;
+  animation: float 6s infinite ease-in-out;
+  opacity: 0.3;
+  z-index: 0;
+}
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: #f7a9a8;
+  border-radius: 50%;
+}
+.heart::before { top: -40px; left: 0; }
+.heart::after { left: -40px; top: 0; }
+.h1 { top: 20%; left: 10%; }
+.h2 { top: 50%; left: 80%; animation-duration: 8s; }
+.h3 { top: 70%; left: 20%; animation-duration: 10s; }
+.h4 { top: 30%; left: 60%; animation-duration: 7s; }
+.h5 { top: 80%; left: 40%; animation-duration: 12s; }
+
+@keyframes float {
+  0%,100% { transform: rotate(45deg) translateY(0); }
+  50% { transform: rotate(45deg) translateY(-20px); }
+}
+
+/* === COVER === */
+.cover h1 {
+  font-size: 2rem;
+  color: #d47f6a;
+  margin-bottom: 20px;
+  z-index: 2;
+}
+.cover p {
+  font-size: 1rem;
+  color: #d47f6a;
+  margin-bottom: 20px;
+  z-index: 2;
+}
+.cover img {
+  width: 180px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+  z-index: 2;
+}
+
+/* === BUTTON === */
+.btn {
+  display: inline-block;
+  margin: 5px;
+  padding: 12px 25px;
+  background: #f7a9a8;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 12px;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 2;
+}
+.btn:hover { background: #e98c89; }
+
+/* === CARD (MAIN & NEXT) === */
+.card {
+  margin: 20px auto;
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width: 280px;
+  z-index: 2;
+}
+.card img {
+  width: 100%;
+  border-radius: 12px;
+}
+.caption {
+  margin-top: 12px;
+  font-size: 18px;
+  color: #d47f6a;
+  font-weight: bold;
+}
+/* === SIDE-BY-SIDE (Halaman 3) === */
+.side-by-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 90%;
+  max-width: 900px;
+}
+
+.side-by-side .text {
+  flex: 1;
+  text-align: left;
+  color: #d47f6a;
+  font-size: 1rem;
+}
+
+.side-by-side .image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.side-by-side .image img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* === REVERSE (Halaman 4: foto kiri, teks kanan) === */
+.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Responsif HP: tetap horizontal tapi lebih kecil */
+@media (max-width: 600px) {
+  .side-by-side {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .side-by-side .text {
+    font-size: 0.9rem;
+  }
+  .side-by-side .image img {
+    max-width: 180px;
+  }
+}
+/* === VERTICAL LAYOUT (Halaman 5) === */
+.vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 90%;
+  max-width: 700px;
+  text-align: center;
+}
+
+.vertical .text {
+  color: #d47f6a;
+  font-size: 1rem;
+}
+
+.vertical .image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+/* ==== TRANSISI POP UP ==== */
+section {
+  display: none;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+section.active {
+  display: flex; /* atau block, sesuai layout */
+  opacity: 1;
+  transform: scale(1);
+  animation: popup 0.5s ease;
+}
+
+@keyframes popup {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Closing Page Style */
+.closing-card {
+  text-align: center;
+  padding: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.closing-card h1 {
+  font-size: 2em;
+  color: #d47f6a;
+  margin-bottom: 15px;
+}
+
+.closing-card p {
+  font-size: 1.2em;
+  color: #d47f6a;
+  margin-bottom: 20px;
+}
